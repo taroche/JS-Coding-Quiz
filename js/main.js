@@ -33,3 +33,22 @@ let QnA = [
         correctOptn: 'f(x === 2)'
     },
 ]
+
+function timerEl() {
+    let prevA = this.textContent;
+    let gameInterval = setInterval(function() {
+        timeRemaining--;
+        timeRemainingEl.textContent = timeRemaining;
+
+        if (prevA = QnA[currentQ-1]. correctOptn){
+            timeRemaining-=5;
+            timeRemainingEl.textContent = timeRemaining
+        };
+        
+        if(timeRemaining<=0){
+            clearInterval(gameInterval)
+            mainEl.setAttribute("class", "hidden");
+            initialsEl.setAttribute("class", "container");
+        }
+    }, 1000)
+};
