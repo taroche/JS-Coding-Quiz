@@ -4,9 +4,11 @@ const optionsEl = document.querySelectorAll("#option");
 const mainEl = document.querySelector("#main");
 const initialsEl = document.querySelector("#inputInitials")
 
+
 const quiz = function(){
     let timeRemaining = 60;
     let currentQ = 0;
+    let gameInterval;
     let QnA = [
         {
             question:"Q1: JavaScript is a ___ -side programming language.",
@@ -36,10 +38,9 @@ const quiz = function(){
     ]
 
     function timerEl() {
-        let gameInterval = setInterval(function() {
+            gameInterval = setInterval(function() {
             timeRemaining--;
-            timeRemainingEl.textContent = timeRemaining;
-            
+            timeRemainingEl.textContent = timeRemaining; 
             if(timeRemaining<=0){
                 clearInterval(gameInterval)
                 mainEl.setAttribute("class", "hidden");
@@ -58,12 +59,12 @@ const quiz = function(){
         else {
             mainEl.setAttribute("class", "hidden");
             initialsEl.setAttribute("class", "container");
+            clearTimeout(gameInterval);
         }
         currentQ++;
     };
 
     function checkAndItterate(){
-        // console.log(this);
         let prevA = this.textContent;
         if(prevA === QnA[currentQ-1].correctOptn){
             console.log("nice correct")
@@ -81,9 +82,9 @@ const quiz = function(){
         itterate()
     };
 
-
     init();
     for (let j = 0; j < optionsEl.length; j++) {
         optionsEl[j].addEventListener("click", checkAndItterate);
     }
+    
 }
