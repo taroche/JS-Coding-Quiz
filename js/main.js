@@ -5,7 +5,7 @@ const mainEl = document.querySelector("#main");
 const initialsEl = document.querySelector("#inputInitials")
 
 let timeRemaining = 60;
-let currentQ;
+let currentQ = 0;
 let QnA = [
     {
         question:"Q1: JavaScript is a ___ -side programming language.",
@@ -35,7 +35,6 @@ let QnA = [
 ]
 
 function timerEl() {
-    let prevA = this.textContent;
     let gameInterval = setInterval(function() {
         timeRemaining--;
         timeRemainingEl.textContent = timeRemaining;
@@ -49,9 +48,15 @@ function timerEl() {
 };
 
 function itterate(){
-    questionEl.textContent = QnA[currentQ].question;
-    for (let i = 0; i < optionsEl.length; i++) {
-        optionsEl[i].textContent= QnA[currentQ].options[i];
+    if(currentQ <= 4) {
+        questionEl.textContent = QnA[currentQ].question;
+        for (let i = 0; i < optionsEl.length; i++) {
+            optionsEl[i].textContent= QnA[currentQ].options[i];
+        }
+    }
+    else {
+        mainEl.setAttribute("class", "hidden");
+        initialsEl.setAttribute("class", "container");
     }
     currentQ++;
 };
@@ -59,20 +64,18 @@ function itterate(){
 function checkAndItterate(){
     // console.log(this);
     let prevA = this.textContent;
-    if(prevA == QnA[currentQ-1].correctOptn){
+    if(prevA === QnA[currentQ-1].correctOptn){
         console.log("nice correct")
     }else {
         console.log("YOU'RE WRONG")
         timeRemaining-= 10;
         timeRemainingEl.textContent = timeRemaining;
     }
-
+        
     itterate();
 };
 
 function init () {
-    currentQ = 0;
-
     timerEl()
     itterate()
 };
