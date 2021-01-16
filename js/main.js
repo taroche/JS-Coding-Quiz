@@ -63,6 +63,8 @@ function checkAndItterate(){
         console.log("nice correct")
     }else {
         console.log("YOU'RE WRONG")
+        timeRemaining-= 10;
+        timeRemainingEl.textContent = timeRemaining;
     }
 
     itterate();
