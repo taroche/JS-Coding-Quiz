@@ -39,11 +39,6 @@ function timerEl() {
     let gameInterval = setInterval(function() {
         timeRemaining--;
         timeRemainingEl.textContent = timeRemaining;
-
-        if (prevA = QnA[currentQ-1]. correctOptn){
-            timeRemaining-=5;
-            timeRemainingEl.textContent = timeRemaining
-        };
         
         if(timeRemaining<=0){
             clearInterval(gameInterval)
@@ -59,4 +54,16 @@ function itterate(){
         optionsEl[i].textContent= QnA[currentQ].options[i];
     }
     currentQ++;
+};
+
+function checkAndItterate(){
+    // console.log(this);
+    let prevA = this.textContent;
+    if(prevA == QnA[currentQ-1].correctOptn){
+        console.log("nice correct")
+    }else {
+        console.log("YOU'RE WRONG")
+    }
+
+    itterate();
 }
