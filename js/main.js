@@ -52,3 +52,11 @@ function timerEl() {
         }
     }, 1000)
 };
+
+function itterate(){
+    questionEl.textContent = QnA[currentQ].question;
+    for (let i = 0; i < optionsEl.length; i++) {
+        optionsEl[i].textContent= QnA[currentQ].options[i];
+    }
+    currentQ++;
+}
