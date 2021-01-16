@@ -66,11 +66,14 @@ function checkAndItterate(){
     }
 
     itterate();
-}
+};
 
 function init () {
     currentQ = 0;
 
     timerEl()
     itterate()
-}
+};
+
+
+init();
