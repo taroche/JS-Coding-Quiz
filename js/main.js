@@ -77,3 +77,6 @@ function init () {
 
 
 init();
+for (let j = 0; j < optionsEl.length; j++) {
+    optionsEl[j].addEventListener("click", checkAndItterate);
+}
