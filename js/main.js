@@ -2,8 +2,8 @@ const timeRemainingEl = document.querySelector('#time');
 const questionEl = document.querySelector("#question");
 const optionsEl = document.querySelectorAll("#option");
 const mainEl = document.querySelector("#main");
-const initialsEl = document.querySelector("#inputInitials");
-const intialsEl = document.querySelector(".initials");
+const saveInitialsEl = document.querySelector("#saveInitials");
+const initialsEl = document.querySelector(".initials");
 const scoreEl = document.querySelector('.score');
 
 let scoreArr = [];
@@ -50,7 +50,7 @@ const quiz = function(){
             if(timeRemaining<=0){
                 clearInterval(gameInterval)
                 mainEl.setAttribute("class", "hidden");
-                initialsEl.setAttribute("class", "container");
+                saveInitialsEl.setAttribute("class", "container");
             }
         }, 1000)
     };
@@ -64,7 +64,7 @@ const quiz = function(){
         }
         else {
             mainEl.setAttribute("class", "hidden");
-            initialsEl.setAttribute("class", "container");
+            saveInitialsEl.setAttribute("class", "container");
             clearTimeout(gameInterval);
         }
         currentQ++;
@@ -96,7 +96,7 @@ const quiz = function(){
 
     
     function saveScore() {
-        let input = timeRemaining +" - "+ intialsEl.value.toUpperCase()
+        let input = timeRemaining +" - "+ initialsEl.value.toUpperCase()
         console.log(parseInt(input))
         scoreArr.push(input)
         localStorage.setItem("scoreArr", JSON.stringify(scoreArr))
