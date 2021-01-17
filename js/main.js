@@ -2,8 +2,14 @@ const timeRemainingEl = document.querySelector('#time');
 const questionEl = document.querySelector("#question");
 const optionsEl = document.querySelectorAll("#option");
 const mainEl = document.querySelector("#main");
-const initialsEl = document.querySelector("#inputInitials")
+const initialsEl = document.querySelector("#inputInitials");
+const intialsEl = document.querySelector(".initials");
+const scoreEl = document.querySelector('.score');
 
+let scoreArr = [];
+    if(localStorage.getItem("scoreArr")){
+        scoreArr = JSON.parse(localStorage.getItem('scoreArr'))
+    }
 
 const quiz = function(){
     let timeRemaining = 60;
@@ -85,6 +91,16 @@ const quiz = function(){
     init();
     for (let j = 0; j < optionsEl.length; j++) {
         optionsEl[j].addEventListener("click", checkAndItterate);
-    }
+    };
+
+
     
+    function saveScore() {
+        let input = timeRemaining +" - "+ intialsEl.value.toUpperCase()
+        console.log(parseInt(input))
+        scoreArr.push(input)
+        localStorage.setItem("scoreArr", JSON.stringify(scoreArr))
+    };
+    
+    document.querySelector(".savebtn").addEventListener("click", saveScore)
 }
