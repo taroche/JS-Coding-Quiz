@@ -104,3 +104,24 @@ const quiz = function(){
     
     document.querySelector(".savebtn").addEventListener("click", saveScore)
 }
+
+
+function results() {
+    let sortedArr = scoreArr.sort(function(a, b) {
+        let firstItem = parseInt(a)
+        let secondItem = parseInt(b)
+
+        return -(firstItem-secondItem)
+    })
+    console.log( scoreArr, sortedArr)
+
+    for (let i = 0; i < sortedArr.length; i++){
+        let newTr = document.createElement('tr');
+        let newTd = document.createElement('td');
+        
+        newTd.textContent=sortedArr[i].toString();
+
+        newTr.appendChild(newTd)
+        scoreEl.appendChild(newTr)
+    }
+}
