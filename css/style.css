@@ -39,6 +39,12 @@ tr{
     display: none;
 }
 
+.highscore {
+    font-weight: bolder;
+    font-size: 100px;
+    color: #66ff33;
+}
+
 div h2{
     font-size: 102%;
     margin: 41px auto;

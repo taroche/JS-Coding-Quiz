@@ -66,6 +66,7 @@ const quiz = function(){
             mainEl.setAttribute("class", "hidden");
             saveInitialsEl.setAttribute("class", "container");
             clearTimeout(gameInterval);
+            timeRemainingEl.classList.add('highscore')
         }
         currentQ++;
     };
