@@ -28,6 +28,11 @@ table {
 
 tr{
     height: 45px;
+    border-bottom: 1px solid #ddd;
+}
+
+.ranking {
+    font-size: 35px;
 }
 
 .hidden {

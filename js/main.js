@@ -119,11 +119,16 @@ function results() {
     for (let i = 0; i < sortedArr.length; i++){
         let newTr = document.createElement('tr');
         let newTd = document.createElement('td');
+        let numberTD = document.createElement('td');
+        let number = i + 1
         
         newTd.textContent=sortedArr[i].toString();
+        numberTD.classList.add('ranking');
+        numberTD.innerHTML = `${number}.`;
         
-        newTr.appendChild(newTd)
-        scoreEl.appendChild(newTr)
+        newTr.appendChild(newTd);
+        scoreEl.appendChild(newTr);
+        newTd.parentNode.insertBefore(numberTD, newTd);
     }
 
 }
