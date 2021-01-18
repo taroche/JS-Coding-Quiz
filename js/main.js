@@ -113,15 +113,17 @@ function results() {
 
         return -(firstItem-secondItem)
     })
-    console.log( scoreArr, sortedArr)
+
+    sortedArr.length = 10
 
     for (let i = 0; i < sortedArr.length; i++){
         let newTr = document.createElement('tr');
         let newTd = document.createElement('td');
         
         newTd.textContent=sortedArr[i].toString();
-
+        
         newTr.appendChild(newTd)
         scoreEl.appendChild(newTr)
     }
+
 }
