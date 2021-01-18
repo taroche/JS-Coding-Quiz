@@ -1,3 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    background-color: #F5F5F5;
+    margin: 10px;
+}
+
+input {
+    margin: 20px;
+    font-size: 25px;
+}
+
+h4{
+    margin: auto;
+}
+
 .hidden {
     display: none;
+}
+
+div h2{
+    font-size: 102%;
+    margin: 41px auto;
+}
+
+
+
+@media only screen and (min-width: 900px) {
+    div h2{
+        font-size: 154%;
+    }
 }
