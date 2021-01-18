@@ -96,6 +96,7 @@ const quiz = function(){
 
     
     function saveScore() {
+        initialsEl.defaultValue = "empty"
         let input = timeRemaining +" - "+ initialsEl.value.toUpperCase()
         console.log(parseInt(input))
         scoreArr.push(input)
